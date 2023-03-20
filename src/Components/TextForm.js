@@ -37,14 +37,20 @@ export default function TextForm(props) {
                 backgroundColor: 'black'
             })
             setBtnText('Enable Light Mood')
+            setConterText({color: '#ffc107'})
         }else {
             setMyStyle({
                 color: 'black',
                 backgroundColor: 'white'
             })
             setBtnText('Enable Dark Mood')
+            setConterText({color: 'black'})
         }
     }
+
+    const [conterText, setConterText] = useState({
+        color: 'black'
+    })
 
     return (
         <div style={myStyle} className='p-5 rounded'>
@@ -57,8 +63,8 @@ export default function TextForm(props) {
             <button className="btn btn-primary" onClick={handeClear}>Clear Data</button>
             <button className="btn btn-primary mx-2" onClick={toggleStyle}>{btntext}</button>
             <h2 className='my-3'>Your Text Summary</h2>
-            <p>{text.split("").length} word and {text.length} characters</p>
-            <p>{0.008 * text.split("").length} Minutes Read</p>
+            <p><b><span style={{ fontSize: 40 }}>{text.split(" ").length}</span></b> <span style={conterText}>Word </span> <b><span style={{ fontSize: 40 }}>{text.length}</span></b> <span style={conterText}>Characters</span></p>
+            <p><b><span style={{ fontSize: 35 }}>{0.008 * text.split("").length}</span></b> <span style={conterText}>Minutes Read</span></p>
             <h2>Preview</h2>
             <p>{text}</p>
         </div>
