@@ -16,6 +16,11 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handeClear = () => {
+        let newText = " ";
+        setText(newText)
+    }
+
     const [ text, setText ] = useState('Enter text here');
   return (
     <div>
@@ -25,8 +30,10 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary" onClick={handelUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-2" onClick={handeLoClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary" onClick={handeClear}>Clear Data</button>
         <h2 className='my-3'>Your text summarys</h2>
         <p>{text.split(" ").length} word and {text.length} characters</p>
+        <p>{0.008 * text.split(" ").length} Minutes Read</p>
         <h2>Preview</h2>
         <p>{text}</p>
     </div>
