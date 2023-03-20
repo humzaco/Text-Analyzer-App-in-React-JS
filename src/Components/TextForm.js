@@ -21,6 +21,17 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handleCopy = () => {
+        let text = document.getElementById("mybox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const handleExtraSpace = () => {
+        let newText = text.split(/[ ]+/);
+            setText(newText.join(" "))
+    }
+
     const [ text, setText ] = useState('Enter text here');
     
     const [myStyle, setMyStyle] = useState({
@@ -62,6 +73,8 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-2" onClick={handeLoClick}>Convert to Lowercase</button>
             <button className="btn btn-primary" onClick={handeClear}>Clear Data</button>
             <button className="btn btn-primary mx-2" onClick={toggleStyle}>{btntext}</button>
+            <button className="btn btn-primary" onClick={handleCopy}>Copy Text</button>
+            <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Extra Space</button>
             <h2 className='my-3'>Your Text Summary</h2>
             <p><b><span style={{ fontSize: 40 }}>{text.split(" ").length}</span></b> <span style={conterText}>Word </span> <b><span style={{ fontSize: 40 }}>{text.length}</span></b> <span style={conterText}>Characters</span></p>
             <p><b><span style={{ fontSize: 35 }}>{0.008 * text.split("").length}</span></b> <span style={conterText}>Minutes Read</span></p>
