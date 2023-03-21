@@ -24,6 +24,7 @@ export default function TextForm(props) {
     let text = document.getElementById("mybox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to Clipboard", "success");
   };
 
   const handleExtraSpace = () => {
@@ -96,7 +97,9 @@ export default function TextForm(props) {
       <h2 className="my-3">Your Text Summary</h2>
       <p>
         <b>
-          <span style={{ fontSize: 40 }}>{text.split(" ").filter(Boolean).length}</span>
+          <span style={{ fontSize: 40 }}>
+            {text.split(" ").filter(Boolean).length}
+          </span>
         </b>{" "}
         <span style={conterText}>Word </span>{" "}
         <b>
@@ -106,12 +109,14 @@ export default function TextForm(props) {
       </p>
       <p>
         <b>
-          <span style={{ fontSize: 35 }}>{0.008 * text.split(" ").filter(Boolean).length}</span>
+          <span style={{ fontSize: 35 }}>
+            {0.008 * text.split(" ").filter(Boolean).length}
+          </span>
         </b>{" "}
         <span style={conterText}>Minutes Read</span>
       </p>
       <h2>Preview</h2>
-      <p>{text.length>0?text:"Enter somting to preview it here"}</p>
+      <p>{text.length > 0 ? text : "Enter somting to preview it here"}</p>
     </div>
   );
 }
