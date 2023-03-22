@@ -40,6 +40,7 @@ export default function TextForm(props) {
   });
 
   const [btntext, setBtnText] = useState("Enable Dark Mood");
+  const [btnColor, setBtnColor] = useState("warning");
 
   const toggleStyle = () => {
     if (myStyle.color === "#212529") {
@@ -49,6 +50,7 @@ export default function TextForm(props) {
       });
       setBtnText("Enable Light Mood");
       setConterText({ color: "#ffc107" });
+      setBtnColor("success");
     } else {
       setMyStyle({
         color: "#212529",
@@ -56,6 +58,7 @@ export default function TextForm(props) {
       });
       setBtnText("Enable Dark Mood");
       setConterText({ color: "#212529" });
+      setBtnColor("warning");
     }
   };
 
@@ -72,26 +75,26 @@ export default function TextForm(props) {
           value={text}
           onChange={handleOnChange}
           id="mybox"
-          rows="7"
+          rows="6"
           style={myStyle}
         ></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handelUpClick}>
+      <button className="btn btn-warning" onClick={handelUpClick}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-primary mx-2" onClick={handeLoClick}>
+      <button className="btn btn-warning mx-2" onClick={handeLoClick}>
         Convert to Lowercase
       </button>
-      <button className="btn btn-primary" onClick={handeClear}>
+      <button className="btn btn-warning" onClick={handeClear}>
         Clear Data
       </button>
-      <button className="btn btn-primary mx-2" onClick={toggleStyle}>
+      <button className={`btn btn-${btnColor} mx-2`} onClick={toggleStyle}>
         {btntext}
       </button>
-      <button className="btn btn-primary" onClick={handleCopy}>
+      <button className="btn btn-warning" onClick={handleCopy}>
         Copy Text
       </button>
-      <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>
+      <button className="btn btn-warning mx-2" onClick={handleExtraSpace}>
         Remove Extra Space
       </button>
       <h2 className="my-3">Your Text Summary</h2>
