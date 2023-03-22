@@ -79,23 +79,23 @@ export default function TextForm(props) {
           style={myStyle}
         ></textarea>
       </div>
-      <button className="btn btn-warning" onClick={handelUpClick}>
+      <button disabled={text.length===0} className="btn btn-warning mx-2" onClick={handelUpClick}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-warning mx-2" onClick={handeLoClick}>
+      <button disabled={text.length===0} className="btn btn-warning " onClick={handeLoClick}>
         Convert to Lowercase
       </button>
-      <button className="btn btn-warning" onClick={handeClear}>
+      <button disabled={text.length===0} className="btn btn-warning mx-2" onClick={handeClear}>
         Clear Data
+      </button>
+      <button disabled={text.length===0} className="btn btn-warning" onClick={handleCopy}>
+        Copy Text
+      </button>
+      <button disabled={text.length===0} className="btn btn-warning mx-2" onClick={handleExtraSpace}>
+        Remove Extra Space
       </button>
       <button className={`btn btn-${btnColor} mx-2`} onClick={toggleStyle}>
         {btntext}
-      </button>
-      <button className="btn btn-warning" onClick={handleCopy}>
-        Copy Text
-      </button>
-      <button className="btn btn-warning mx-2" onClick={handleExtraSpace}>
-        Remove Extra Space
       </button>
       <h2 className="my-3">Your Text Summary</h2>
       <p>
